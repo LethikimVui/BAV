@@ -1,0 +1,76 @@
+﻿@model List<SharedObjects.ValueObjects.VConfiguration>;
+
+@{
+    ViewData["Title"] = "Configuration";
+    var data = ViewData["data"] as IEnumerable<SharedObjects.ValueObjects.VConfiguration>;
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="min-height: auto !important;height: auto !important;">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light" style="min-height: auto !important;height: auto !important">
+                <div class="portlet-title">
+
+                    <div class="caption col-md-12">
+                        <span class="caption-subject font-green-sharp bold uppercase">
+                            CONFIGURATION
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Assembly Number</label>
+                        <select class="form-control" id="txt-assembly-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+                            @foreach (var item in data.Select(s => new { s.Model }).Distinct().ToList())
+                            {
+                            <option value="@item.Model">@item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Revision</label>
+
+                        <select class="form-control" id="txt-revision-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+                            @foreach (var item in data.Select(s => new { s.Revision }).Distinct().ToList())
+                            {
+                            <option value="@item.Revision">@item.Revision</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 pull-left">
+                        <label class="text-center bold font-green-sharp" for="">Accessory</label>
+                        <select class="form-control" id="txt-accessory-search" style="height: 34px !important; color: mediumvioletred">
+                            <option value="">--Please Select--</option>
+                            @foreach (var item in data.Select(s => new { s.Accessory }).Distinct().ToList())
+                            {
+                            <option value="@item.Accessory">@item.Accessory</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <a class="btn btn-success" id="btn-search">Search</a>
+                        <a class="btn btn-success" id="btn-reset">Reset</a>
+                    </div>
+                </div>
+                <div id="tbl-data" class="table-responsive-lg">
+
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+
+
+            </div>
+
+        </div>
+      
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/bav.js"></script>
+}

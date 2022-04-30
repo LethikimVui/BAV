@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>\\vnhcmm0teapp05\wwwroot\BAV\BAV</_PublishTargetUrl>
+    <History>True|2022-04-29T08:11:43.3874397Z;True|2022-04-29T15:05:51.4736408+07:00;True|2022-04-29T14:59:03.4688379+07:00;True|2022-04-29T14:40:32.1383092+07:00;True|2022-04-29T10:00:11.7004627+07:00;</History>
+  </PropertyGroup>
+</Project>

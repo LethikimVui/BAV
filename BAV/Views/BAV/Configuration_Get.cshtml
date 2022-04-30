@@ -1,0 +1,106 @@
+﻿@model List<SharedObjects.ValueObjects.VConfiguration>;
+@using SharedObjects.Extensions;
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr class="text-center bold">
+            <td>No.</td>
+            <td>Model</td>
+            <td>Family</td>
+            <td>Revision</td>
+            <td>Accessory</td>
+            <td>Description</td>
+            <td>Creation Date</td>
+            <td>Created By</td>
+            <td>Created Name</td>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SYSTEM ADMIN") || User.IsInRole("Super User")))
+            {
+                <td style="width:100px">Modification</td>
+            }
+        </tr>
+    </thead>
+    <tbody id="table-data">
+
+        @*<tr class="text-center">
+
+                <td>
+                    <select class="form-control" id="txt-model" required>
+                        @foreach (var item in list.Select(x => new { x.Number}).Distinct().ToList())
+                        {
+                            <option value=@item.Number>@item.Number</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" id="txt-model" required>
+                        @foreach (var item in list.Select(x => new { x.Family }).Distinct())
+                        {
+                            <option value=@item.Family>@item.Family</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" id="txt-model" required>
+                        @foreach (var item in list.Select(x => new { x.Revision }).Distinct())
+                        {
+                            <option value=@item.Revision>@item.Revision</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" id="txt-model" required>
+                        @foreach (var item in list.Select(x => new { x.Assembly }).Distinct())
+                        {
+                            <option value=@item.Assembly>@item.Assembly</option>
+                        }
+                    </select>
+                </td>
+
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="text-center">
+                    <a id="btn-add" class="btn default btn-xs purple update" title="Add"> <span class="glyphicon glyphicon-plus"></span></a>
+                </td>
+            </tr>*@
+        <tr class="text-center">
+            <td></td>
+            <td><input type="text" id="txt-model" /></td>
+            <td><input type="text" id="txt-family" /></td>
+            <td><input type="text" id="txt-revision" /></td>
+            <td><input type="text" id="txt-accessory" /></td>
+            <td><input type="text" id="txt-description" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SYSTEM ADMIN") || User.IsInRole("Super User")))
+            {
+
+                <td class="text-center">
+                    <a id="btn-add" class="btn default btn-xs purple update" title="Add"> <span class="glyphicon glyphicon-plus"></span></a>
+                </td>
+
+            }
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td id="">@item.rc</td>
+                <td id="">@item.Model</td>
+                <td id="">@item.Family</td>
+                <td id="">@item.Revision</td>
+                <td id="">@item.Accessory</td>
+                <td id="">@item.Description</td>
+                <td id="">@item.CreationDate</td>
+                <td id="">@item.CreatedBy</td>
+                <td id="">@item.CreatedName</td>
+                @if (User.IsInRole("SYSTEM ADMIN") || User.IsInRole("Super User"))
+                {
+                    <td class="text-center">
+                        <a id="btn-delete" class="btn default btn-xs red delete" data-id="@item.ConfigId" title="Delete"> <span class="glyphicon glyphicon-remove"></span></a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

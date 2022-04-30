@@ -1,0 +1,36 @@
+﻿@model List<SharedObjects.ValueObjects.VLog>;
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr class="text-center bold">
+            <td>No.</td>
+            <td>Serail Number</td>
+            <td>Box Number</td>
+            <td>Assembly Number</td>
+            <td>Revision</td>
+            <td>Accessory List</td>
+            <td>Test Result</td>
+            <td>Tester Name</td>
+            <td>Created By</td>
+            <td>Creation Date</td>
+        </tr>
+    </thead>
+    <tbody id="table-data">
+
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td id="">@item.rc</td>
+                <td id="">@item.SerailNumber</td>
+                <td id="">@item.BoxNumber</td>
+                <td id="">@item.AssemblyNumber</td>
+                <td id="">@item.Revision</td>
+                <td id="">@item.AccessoryList</td>
+                <td id="">@item.TestResult</td>
+                <td id="">@item.TesterName</td>
+                <td id="">@item.CreatedBy</td>
+                <td id="">@item.CreationDate</td>              
+            </tr>
+        }
+    </tbody>
+</table>
