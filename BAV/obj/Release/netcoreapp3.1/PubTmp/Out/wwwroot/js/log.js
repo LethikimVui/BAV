@@ -20,13 +20,14 @@
         loadData: function (changePageSize) {
             var totalRecord = 0;
             //  $("#loading").show();
-
+            var dateFrom = $('#txt-from-search').val() ? $('#txt-from-search').val().replace('T', ' ') : null;
+            var dateTo = $('#txt-to-search').val() ? $('#txt-to-search').val().replace('T', ' ') : null;
             var model = new Object();
             model.PageSize = homeconfig.pageSize
             model.PageIndex = homeconfig.pageIndex - 1;
             model.Model = $('#txt-assembly-search').val() ? $('#txt-assembly-search').val() : null;
-            model.DateFrom = $('#txt-from-search').val() ? $('#txt-from-search').val() : null;
-            model.DateTo = $('#txt-to-search').val() ? $('#txt-to-search').val() : null;
+            model.DateFrom = dateFrom;
+            model.DateTo = dateTo;
 
             debugger
 
@@ -96,11 +97,13 @@
 
     function Export() {
         var data = [];
+        var dateFrom = $('#txt-from-search').val() ? $('#txt-from-search').val().replace('T', ' ') : null;
+        var dateTo = $('#txt-to-search').val() ? $('#txt-to-search').val().replace('T', ' ') : null;
         var model = new Object();
         model.Model = $('#txt-assembly-search').val() ? $('#txt-assembly-search').val() : null;
-        model.DateFrom = $('#txt-from-search').val() ? $('#txt-from-search').val() : null;
-        model.DateTo = $('#txt-to-search').val() ? $('#txt-to-search').val() : null;       
-        
+        model.DateFrom = dateFrom;
+        model.DateTo = dateTo;
+
         $.ajax({
             async: false,
             type: 'post',

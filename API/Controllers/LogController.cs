@@ -56,7 +56,7 @@ namespace API.Controllers
                 DbType = System.Data.DbType.Int32,
                 Direction = System.Data.ParameterDirection.Output
             };
-            await context.Database.ExecuteSqlCommandAsync(SPLog.Log_count,model.Model, model.DateFrom, model.DateTo, output);
+            await context.Database.ExecuteSqlCommandAsync(SPLog.Log_count, model.Model, model.DateFrom, model.DateTo, output);
             var result = (int)output.Value;
             return result;
         }
